@@ -112,7 +112,9 @@ def __estimate_point_with_closest(
     }, pd.DataFrame([])
 
 
-def ultimate_averager(df: pd.DataFrame) -> dict:
+def ultimate_averager(
+    df: pd.DataFrame, e_mean_key: str = "e_mean", e_std_key: str = "e_std"
+) -> dict:
     """Complete averager for estimation of mean energy and energy spread
 
     Parameters
@@ -127,13 +129,14 @@ def ultimate_averager(df: pd.DataFrame) -> dict:
     """
 
     m = Minuit(
-        Likelihood(df["e_mean"], df["e_std"], df["luminosity"]),  # type: ignore
-        mean=df["e_mean"].mean(),
-        sigma=df["e_mean"].std(ddof=0),
+        Likelihood(df[e_mean_key], df[e_std_key], df["luminosity"]),  # type: ignore
+        mean=df[e_mean_key].mean(),
+        sigma=df[e_mean_key].std(ddof=0),
     )
     m.errordef = 0.5
     m.limits["sigma"] = (0, None)
     m.migrad()
+    m.hesse()
     sys_err = m.values["sigma"]
     mean_en = m.values["mean"]
 
