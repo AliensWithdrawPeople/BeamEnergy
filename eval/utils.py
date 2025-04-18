@@ -15,11 +15,12 @@ class Season:
     name: str
     season_info: Path
     graphs_location: Path
-    tables_location: Path
+    compton_tables: Path
+    output_tables: Path
 
 
-def _make_graph_filename(point_name: str) -> str:
-    return f"tot_hist_{point_name}.root"
+def _make_graph_filename(point) -> str:
+    return f"graph_scan{point.season.name[-4:]}_e{point.name}.root"
 
 
 @dataclass
@@ -28,21 +29,22 @@ class Point:
     name: str
     compton_mean: float
     graph_location: Path = field(init=False)
-    table_location: Path = field(init=False)
+    compton_table: Path = field(init=False)
+    output_table: Path = field(init=False)
 
     def __post_init__(self):
         self.graph_location = Path(
-            self.season.graphs_location, _make_graph_filename(self.name)
+            self.season.graphs_location, _make_graph_filename(self)
         )
         if not self.graph_location.exists():
             raise RuntimeError(
-                f"There is no {self.graph_location.name} file for {self.name} from season {self.season.name}."
+                f"There is no {self.graph_location} file for {self.name} from season {self.season.name}."
             )
 
         table = [
             table
-            for table in self.season.tables_location.iterdir()
-            if table.stem.split("_")[0] == self.name
+            for table in self.season.compton_tables.iterdir()
+            if float(table.stem.split("_")[0]) == float(self.name)
         ]
         if not table:
             raise RuntimeError(
@@ -55,19 +57,24 @@ class Point:
                 category=RuntimeWarning,
             )
             table.sort(key=lambda path: int(path.stem.split("_")[1]), reverse=True)
-        self.table_location = table[0]
+        self.compton_table = table[0]
+
+        self.output_table = Path(
+            self.season.output_tables, f"{self.season.name}_e{self.name}.csv"
+        )
 
 
 def make_a_point(season: Season) -> list[Point]:
     """Read [this](https://www.alexandrafranzen.com/2016/03/29/how-to-make-your-point/) to understand."""
     with open(season.season_info) as csvfile:
         reader = csv.DictReader(csvfile)
-    points = [
-        Point(
-            season=season,
-            name=row["energy_point"],
-            compton_mean=float(row["mean_energy"]),
-        )
-        for row in reader
-    ]
+        points = [
+            Point(
+                season=season,
+                name=row["energy_point"],
+                compton_mean=float(row["mean_energy"]),
+            )
+            for row in reader
+            if 501 < float(row["energy_point"]) < 532 and int(row["first_run"]) > 59000
+        ]
     return points
