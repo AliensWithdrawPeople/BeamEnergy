@@ -1,0 +1,100 @@
+{
+    "Phi2024_e503": {
+        "mean_energy": 3.334345868893167,
+        "mean_energy_stat_err": 0.72225,
+        "mean_energy_sys_err": 2.82301,
+        "mean_spread": 0.45382301867232916,
+        "mean_spread_stat_err": 0.02159
+    },
+    "Phi2024_e505": {
+        "mean_energy": 5.016035843688201,
+        "mean_energy_stat_err": 0.01207,
+        "mean_energy_sys_err": 0.07401,
+        "mean_spread": 0.38797646150013115,
+        "mean_spread_stat_err": 0.00924
+    },
+    "Phi2024_e506.5": {
+        "mean_energy": 4.3378243030528925,
+        "mean_energy_stat_err": 0.00576,
+        "mean_energy_sys_err": 0.03405,
+        "mean_spread": 0.38522816223024825,
+        "mean_spread_stat_err": 0.00739
+    },
+    "Phi2024_e508": {
+        "mean_energy": 3.8080270436689423,
+        "mean_energy_stat_err": 0.00491,
+        "mean_energy_sys_err": 0.04864,
+        "mean_spread": 0.3653252051336751,
+        "mean_spread_stat_err": 0.00659
+    },
+    "Phi2024_e508.5": {
+        "mean_energy": 3.684745539202538,
+        "mean_energy_stat_err": 0.00485,
+        "mean_energy_sys_err": 0.05293,
+        "mean_spread": 0.34134457898896203,
+        "mean_spread_stat_err": 0.0053
+    },
+    "Phi2024_e509": {
+        "mean_energy": 3.5733653221421626,
+        "mean_energy_stat_err": 0.00246,
+        "mean_energy_sys_err": 0.02615,
+        "mean_spread": 0.3584945255550711,
+        "mean_spread_stat_err": 0.00424
+    },
+    "Phi2024_e509.5": {
+        "mean_energy": 3.4885816831773444,
+        "mean_energy_stat_err": 0.00259,
+        "mean_energy_sys_err": 0.03056,
+        "mean_spread": 0.34051352194792145,
+        "mean_spread_stat_err": 0.00434
+    },
+    "Phi2024_e510": {
+        "mean_energy": 3.4611219523306462,
+        "mean_energy_stat_err": 0.00192,
+        "mean_energy_sys_err": 0.02351,
+        "mean_spread": 0.33682423062941785,
+        "mean_spread_stat_err": 0.00331
+    },
+    "Phi2024_e510.5": {
+        "mean_energy": 3.413972493023988,
+        "mean_energy_stat_err": 0.00337,
+        "mean_energy_sys_err": 0.0364,
+        "mean_spread": 0.3446022654865409,
+        "mean_spread_stat_err": 0.00423
+    },
+    "Phi2024_e511": {
+        "mean_energy": 3.2840263878518363,
+        "mean_energy_stat_err": 0.00435,
+        "mean_energy_sys_err": 0.04077,
+        "mean_spread": 0.344601029197815,
+        "mean_spread_stat_err": 0.00587
+    },
+    "Phi2024_e511.5": {
+        "mean_energy": 3.2232904285046637,
+        "mean_energy_stat_err": 0.00374,
+        "mean_energy_sys_err": 0.03697,
+        "mean_spread": 0.3359134874291522,
+        "mean_spread_stat_err": 0.00472
+    },
+    "Phi2024_e512.5": {
+        "mean_energy": 3.0338954565011087,
+        "mean_energy_stat_err": 0.00487,
+        "mean_energy_sys_err": 0.0358,
+        "mean_spread": 0.3178230172033108,
+        "mean_spread_stat_err": 0.00552
+    },
+    "Phi2024_e515": {
+        "mean_energy": 2.7186832626909356,
+        "mean_energy_stat_err": 0.00588,
+        "mean_energy_sys_err": 0.03616,
+        "mean_spread": 0.31648281874306244,
+        "mean_spread_stat_err": 0.0063
+    },
+    "Phi2024_e520": {
+        "mean_energy": 2.2722310094863096,
+        "mean_energy_stat_err": 0.00988,
+        "mean_energy_sys_err": 0.04235,
+        "mean_spread": 0.33533585456303694,
+        "mean_spread_stat_err": 0.00723
+    }
+}
