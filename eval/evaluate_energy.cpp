@@ -95,9 +95,9 @@ int evaluate_energy(std::string root_dir = "./")
         std::cout << "Start processing: " << point_name << std::endl;
         auto output_hist_path = output_dir + "hists/" + "tot_hist_" + point_name + ".root";
         auto output_graph_path = output_dir + "graphs/" + "graph_" + point_name + ".root";
-        energies[point_name] = new Energy(input_dir + input, badRuns);
+        energies[point_name] = new Energy(input_dir + input, badRuns, 30);
         energies[point_name]->SaveMergedHist(output_hist_path, make_safe_name(point_name));
-        energies[point_name]->DrawGraph(output_graph_path);
+        energies[point_name]->DrawGraph(output_graph_path, true);
         std::cout << "Finished processing: " << point_name << std::endl;
         std::cout << "Files saved: " << std::endl << "\t *" << output_hist_path << std::endl << "\t *" << output_graph_path << std::endl << std::endl;
     }

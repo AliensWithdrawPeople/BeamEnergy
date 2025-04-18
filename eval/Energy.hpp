@@ -47,7 +47,7 @@ private:
     double comptonEnergyError;
     std::vector<int> badRuns;
 
-    std::vector<double> runs;
+    std::vector<int> runs;
     Int_t runnum;
     Float_t emeas;
     Float_t demeas;
@@ -84,15 +84,16 @@ public:
     // Return map of (groupNum, KchEnergy(groupNum) + energyShift - comptonEnergyMean) pairs.
     std::map<int, Float_t> GetEnergyDiff();
 
-    Energy(std::string fChargedK, std::string fBadRunsList, std::optional<double> comptonEnergyMean = std::nullopt, 
-            std::optional<double> comptonEnergyError = std::nullopt, int maxGroupSize = 1, double shiftToKchEnergy = 0., 
+    Energy(std::string fChargedK, std::string fBadRunsList, int maxGroupSize, 
+            std::optional<double> comptonEnergyMean = std::nullopt, 
+            std::optional<double> comptonEnergyError = std::nullopt, double shiftToKchEnergy = 0., 
             bool isExp = true, bool isVerbose = false);
     ~Energy();
 };
 #endif
 
 #define Energy_cpp
-Energy::Energy(std::string fChargedK, std::string fBadRunsList, std::optional<double> comptonEnergyMean, std::optional<double> comptonEnergyError, int maxGroupSize, double shiftToKchEnergy, bool isExp, bool isVerbose)
+Energy::Energy(std::string fChargedK, std::string fBadRunsList, int maxGroupSize, std::optional<double> comptonEnergyMean, std::optional<double> comptonEnergyError, double shiftToKchEnergy, bool isExp, bool isVerbose)
 {
     TFile *file = TFile::Open(fChargedK.c_str());
     kTr = (TTree *)file->Get("kChargedTree");
@@ -137,7 +138,7 @@ Energy::~Energy()
 
 int Energy::FillHists()
 {
-    std::set<double> runs_;
+    std::set<int> runs_;
     for(int i = 0; i < kTr->GetEntriesFast(); i++)
     {
         kTr->GetEntry(i);
@@ -146,7 +147,7 @@ int Energy::FillHists()
         { continue; }
         if(isExp && (fabs(demeas) < 1e-8 || emeas < 100))
         { continue; }
-        runs_.insert(double(runnum));
+        runs_.insert(int(runnum));
         if(enHists.count(runnum) <= 0)
         { 
             std::string tmpStr = "hEn_" + std::to_string(runnum);
@@ -154,7 +155,6 @@ int Energy::FillHists()
         }
         enHists[runnum]->Fill(sqrt(tptot->at(0) * tptot->at(0) + kchMass * kchMass));
         enHists[runnum]->Fill(sqrt(tptot->at(1) * tptot->at(1) + kchMass * kchMass));
-        // std::cout << tptot->at(0) << std::endl;
         runAvgEmeas[runnum] = std::make_pair(emeas, demeas);
     }
     runs.insert(runs.end(), runs_.begin(), runs_.end());
@@ -220,7 +220,7 @@ int Energy::DivideIntoGroups(int maxGroupSize)
     emeasRunGroups = {{int(runs[0])}};
     for(int i = 1; i < runs.size(); i++)
     {
-        if(fabs(runAvgEmeas[int(runs[i])].first - runAvgEmeas[int(runs[i - 1])].first) < 1e-8)
+        if(fabs(runAvgEmeas[int(runs[i])].first - runAvgEmeas[int(runs[i - 1])].first) < 1e-5)
         { emeasRunGroups.back().push_back(int(runs[i])); }
         else
         { emeasRunGroups.push_back({int(runs[i])}); }
@@ -271,10 +271,10 @@ std::pair<double, double> Energy::DrawGraph(std::optional<std::string> ouput_fil
     auto enValsAveraged = runAvgEval;
     if(merged)
     {
-        enValsAveraged = AverageKchEnergy(true);
+        enValsAveraged = AverageKchEnergy();
         for(const auto &group : enRunGroups)
         {
-            groupNums.push_back((group.back() + group[0]) / 2);
+            groupNums.push_back(group[0]);
             groupNumsErr.push_back(fabs(group.back() - group[0]) / 2);
         }
     }
