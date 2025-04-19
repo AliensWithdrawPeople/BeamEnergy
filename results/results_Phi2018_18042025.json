@@ -1,0 +1,107 @@
+{
+    "Phi2018_e503": {
+        "mean_energy": 508.04755192504143,
+        "mean_energy_stat_err": 1.87336,
+        "mean_energy_sys_err": 6.16409,
+        "mean_spread": 0.2566542267196855,
+        "mean_spread_stat_err": 0.00515
+    },
+    "Phi2018_e505": {
+        "mean_energy": 499.295807480004,
+        "mean_energy_stat_err": 0.04527,
+        "mean_energy_sys_err": 0.09778,
+        "mean_spread": 0.2537071000440892,
+        "mean_spread_stat_err": 0.0088
+    },
+    "Phi2018_e508": {
+        "mean_energy": 503.6350493248344,
+        "mean_energy_stat_err": 0.00496,
+        "mean_energy_sys_err": 5e-05,
+        "mean_spread": 0.278389568426327,
+        "mean_spread_stat_err": 0.00736
+    },
+    "Phi2018_e508.5": {
+        "mean_energy": 504.33316656801304,
+        "mean_energy_stat_err": 0.00529,
+        "mean_energy_sys_err": 0.02889,
+        "mean_spread": 0.24540664034523524,
+        "mean_spread_stat_err": 0.00782
+    },
+    "Phi2018_e509": {
+        "mean_energy": 505.0466037627147,
+        "mean_energy_stat_err": 0.00392,
+        "mean_energy_sys_err": 0.0163,
+        "mean_spread": 0.2512945367286439,
+        "mean_spread_stat_err": 0.01082
+    },
+    "Phi2018_e509.5": {
+        "mean_energy": 505.7747187222731,
+        "mean_energy_stat_err": 0.00359,
+        "mean_energy_sys_err": 0.02586,
+        "mean_spread": 0.27054372417275957,
+        "mean_spread_stat_err": 0.00394
+    },
+    "Phi2018_e510": {
+        "mean_energy": 506.23859615362215,
+        "mean_energy_stat_err": 0.00364,
+        "mean_energy_sys_err": 0.02106,
+        "mean_spread": 0.29414506251074707,
+        "mean_spread_stat_err": 0.00457
+    },
+    "Phi2018_e510.5": {
+        "mean_energy": 506.7748524900743,
+        "mean_energy_stat_err": 0.00319,
+        "mean_energy_sys_err": 0.00999,
+        "mean_spread": 0.2878583074803351,
+        "mean_spread_stat_err": 0.00661
+    },
+    "Phi2018_e511": {
+        "mean_energy": 507.4754298263524,
+        "mean_energy_stat_err": 0.00278,
+        "mean_energy_sys_err": 0.0001,
+        "mean_spread": 0.26785644953312293,
+        "mean_spread_stat_err": 0.00549
+    },
+    "Phi2018_e511.5": {
+        "mean_energy": 507.9552510394416,
+        "mean_energy_stat_err": 0.00416,
+        "mean_energy_sys_err": 0.00626,
+        "mean_spread": 0.27677061274322906,
+        "mean_spread_stat_err": 0.0081
+    },
+    "Phi2018_e514": {
+        "mean_energy": 510.7634020733054,
+        "mean_energy_stat_err": 0.00994,
+        "mean_energy_sys_err": 0.0241,
+        "mean_spread": 0.25920976374820276,
+        "mean_spread_stat_err": 0.00994
+    },
+    "Phi2018_e517": {
+        "mean_energy": 514.179485086033,
+        "mean_energy_stat_err": 0.0127,
+        "mean_energy_sys_err": 0.01341,
+        "mean_spread": 0.2554422381911154,
+        "mean_spread_stat_err": 0.00938
+    },
+    "Phi2018_e520": {
+        "mean_energy": 517.4740304943147,
+        "mean_energy_stat_err": 0.01547,
+        "mean_energy_sys_err": 0.01088,
+        "mean_spread": 0.29019835940002764,
+        "mean_spread_stat_err": 0.01151
+    },
+    "Phi2018_e525": {
+        "mean_energy": 506.8930627193157,
+        "mean_energy_stat_err": 0.06984,
+        "mean_energy_sys_err": 0.1368,
+        "mean_spread": 0.2950864768184499,
+        "mean_spread_stat_err": 0.01431
+    },
+    "Phi2018_e530": {
+        "mean_energy": 507.2533592166909,
+        "mean_energy_stat_err": 0.10171,
+        "mean_energy_sys_err": 0.1897,
+        "mean_spread": 0.26196071523373643,
+        "mean_spread_stat_err": 0.0159
+    }
+}
