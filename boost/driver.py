@@ -5,7 +5,7 @@ from processing import eval_boost
 import time
 
 season_name = "Phi2024"
-energy_name = "509"
+energy_name = "510"
 
 key = f"scan{season_name[-4:]}_e{energy_name}"
 input = Path(ROOT_FOLDER, f"data/{season_name}/kpkm_{key}.root")

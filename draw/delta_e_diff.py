@@ -11,10 +11,10 @@ energy_fit_results_phi2018 = Path(ROOT_FOLDER, "results/results_Phi2018_18042025
 fit_results_phi2024 = Path(ROOT_FOLDER, "results/results_Phi2024_18042025.json")
 
 delta_E_fit_results_phi2018 = Path(
-    ROOT_FOLDER, "results/results_Phi2018_delta_E_18042025.json"
+    ROOT_FOLDER, "results/results_Phi2018_delta_E_03052025.json"
 )
 delta_E_fit_results_phi2024 = Path(
-    ROOT_FOLDER, "results/results_Phi2024_delta_E_18042025.json"
+    ROOT_FOLDER, "results/results_Phi2024_delta_E_03052025.json"
 )
 
 phi2018: dict = json.loads(energy_fit_results_phi2018.read_text())
